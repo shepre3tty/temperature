@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        background-color: lightblue;
+        width: 400px;
+        text-align: center;
+    
+        padding: 10px;
+    }
+
+    form div{
+        margin-top: 10px;
+        
+
+    }
+
+    button{
+        background-color: grey;
+        border: none;
+        margin-top: 10px;
+        color: wheat;
+        padding: 5px 20px;
+    }
+</style>
+<body>
+
+    <form action="">
+        <h1>Temperature Conversion</h1>
+        <input type="number" id="textbox">
+        <div>
+            <input type="radio" id="toKelvin" name="unit">
+            <label for="toKelvin">Celsius to Kelvin</label>
+        </div>
+        <div>
+            <input type="radio" id="toCelsius" name="unit">
+            <label for="toCelsius">Kelvin to Celsius</label> <br>
+            <h3 id="display"></h3>
+            <button type="button" id="convert">convert</button>
+        </div>
+    </form>
+    
+
+
+
+    <script>
+        let toKelvin = document.getElementById('toKelvin')
+        let toCelsius = document.getElementById('toCelsius')
+        let display = document.getElementById ('display')
+        let convert = document.getElementById ('convert')
+        let textbox = document.getElementById ('textbox')
+
+        convert.onclick = function(){
+         if(toKelvin.checked){
+            temp = Number(textbox.value);
+            temp =temp + 273.15;
+            display.textContent =temp;
+         }else if (toCelsius.checked){
+            temp = Number(textbox.value)
+            temp =temp-273.15
+            display.textContent =temp.toFixed(3)
+         }else{
+            display.textContent = "No unit was selected"
+         }
+        }
+
+    </script>
+</body>
+</html>
